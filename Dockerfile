@@ -7,5 +7,5 @@ RUN apk --no-cache add dropbear &&\
     adduser -s /bin/sh -D $SSHUSER --home /home/$SSHUSER &&\
     chown -R $SSHUSER:$SSHUSER /home/$SSHUSER
 
-CMD ["/bin/sh", "-c", "/usr/sbin/dropbear -RFEwgsjk -G ${SSHUSER} -p 22"]
-EXPOSE 22
+CMD ["/bin/sh", "-c", "/usr/sbin/dropbear -RFEwgsjk -G ${SSHUSER} -p 2222"]
+EXPOSE 2222
