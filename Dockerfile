@@ -1,6 +1,6 @@
 FROM alpine:3.17
 WORKDIR /app
-ENV SSHUSER=myuser
+ENV SSHUSER=mkasajim
 # The SSH user to create
 RUN apk --no-cache add dropbear &&\
     mkdir -p /home/$SSHUSER/.ssh &&\
