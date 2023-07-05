@@ -1,11 +1,13 @@
-FROM alpine:3.17
-WORKDIR /app
-ENV SSHUSER=mkasajim
-# The SSH user to create
-RUN apk --no-cache add dropbear &&\
-    mkdir -p /home/$SSHUSER/.ssh &&\
-    adduser -s /bin/sh -D $SSHUSER --home /home/$SSHUSER &&\
-    chown -R $SSHUSER:$SSHUSER /home/$SSHUSER
+FROM ubuntu:20.04
 
-CMD ["/bin/sh", "-c", "/usr/sbin/dropbear -RFEwgsjk -G ${SSHUSER} -p 2222"]
-EXPOSE 2222
+RUN apt-get update && apt-get install libsm6 libxext6 python3-pip  -y
+
+ADD ./ ./
+
+RUN pip install -r requirements.txt
+
+WORKDIR ./
+
+CMD ["python3","api.py"]
+
+EXPOSE 8000
