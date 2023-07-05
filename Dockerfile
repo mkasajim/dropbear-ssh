@@ -8,6 +8,6 @@ RUN pip install -r requirements.txt
 
 WORKDIR ./
 
-CMD ["python3","api.py"]
+CMD ["python3","app.py"]
 
 EXPOSE 8000
