@@ -1,9 +1,9 @@
 version: "3.3"
 
 services:
-  app:
+  api-v2:
     build: .
-    command: "/bin/sh", "-c", "/usr/sbin/dropbear -RFEwgsjk -G ${SSHUSER} -p 2222"
+    command: python3 app.py
     restart: on-failure
     ports:
-      - "2222:2222"
+      - "8000:8000"
